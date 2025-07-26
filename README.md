@@ -3,13 +3,22 @@
 A machine learning-powered web application that predicts diabetes risk based on health and lifestyle factors using the BRFSS 2015 dataset.
 
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Gradio](https://img.shields.io/badge/Gradio-00D4AA?style=for-the-badge&logo=gradio&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/🤗%20Hugging%20Face-FFD21E?style=for-the-badge&logoColor=black)
 
 ## Live Demo
 
-**Try the live application**: [Diabetes Risk Predictor](https://vivektheprogrammer-diabetes-risk-prediction-fullapp-h3k2ri.streamlit.app/)
+🚀 **Try the live application:**
+
+### Gradio Interface (Hugging Face Spaces)
+**[Diabetes Risk Predictor - Live Demo](https://vivekr21-ml-diabetes-risk-prediction.hf.space/)**
+- Interactive Gradio interface hosted on Hugging Face Spaces
+- Real-time predictions with feature importance analysis
+- Clean, modern UI with dropdown menus and sliders
+- Instant deployment and high availability
 
 ## Table of Contents
 
@@ -28,10 +37,12 @@ A machine learning-powered web application that predicts diabetes risk based on 
 This application uses machine learning to assess diabetes risk based on various health indicators from the Behavioral Risk Factor Surveillance System (BRFSS) 2015 dataset. The model considers 21 different health and lifestyle factors to provide personalized risk assessments.
 
 ### Key Highlights
-- **Interactive Web Interface**: User-friendly Streamlit application
+- **Live Web Application**: Interactive Gradio interface on Hugging Face Spaces
+- **Dual Interface Options**: Choose between Streamlit (local) and Gradio (web) interfaces
 - **Real-time Predictions**: Instant risk assessment with confidence scores
 - **Feature Engineering**: Advanced feature extraction for improved accuracy
-- **Model Interpretability**: Feature importance analysis and SHAP explanations
+- **Model Interpretability**: Feature importance analysis and transparency
+- **Cloud Deployment**: Available on Hugging Face Spaces for easy access
 
 ## Features
 
@@ -39,10 +50,13 @@ This application uses machine learning to assess diabetes risk based on various 
 - **Confidence Scoring**: Provides probability scores with precise percentages
 - **24 Health Indicators**: Comprehensive health and lifestyle assessment
 - **Feature Importance**: Interactive visualization of top contributing factors
-- **Responsive Design**: Clean, user-friendly interface with three-column layout
+- **Dual UI Options**: 
+  - **Gradio Interface**: Modern, responsive design with dropdowns and sliders (Live on Hugging Face)
+  - **Streamlit Interface**: Comprehensive three-column layout for local deployment
 - **Real-time Predictions**: Instant risk assessment upon form submission
 - **Model Transparency**: View your input data and engineered features
 - **Educational Content**: Detailed explanations and medical disclaimers
+- **Easy Access**: No installation required - use the live web application
 
 ## Dataset
 
@@ -118,37 +132,63 @@ The model is trained on the **Diabetes Health Indicators Dataset** from BRFSS 20
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/Vivektheprogrammer/ML_Diabetes_Risk_Prediction.git
-   cd ML_Diabetes_Risk_Prediction
+   git clone https://github.com/Vivektheprogrammer/ml_diabetes_risk_prediction.git
+   cd ml_diabetes_risk_prediction
    ```
 
 2. **Install dependencies**
    ```bash
+   # For Streamlit interface
    pip install streamlit pandas scikit-learn joblib numpy
+   
+   # For Gradio interface
+   pip install gradio pandas scikit-learn joblib numpy
    ```
 
 3. **Run the application**
    ```bash
+   # Streamlit interface
    streamlit run fullapp.py
+   
+   # Gradio interface
+   python app.py
    ```
 
-4. **Open your browser** and navigate to `http://localhost:8501`
+4. **Open your browser**
+   - Streamlit: Navigate to `http://localhost:8501`
+   - Gradio: Navigate to `http://localhost:7860`
 
 ### Alternative Installation
 
 You can also install specific versions:
 ```bash
-pip install streamlit==1.28.0 pandas==2.0.3 scikit-learn==1.3.0 joblib==1.3.2 numpy==1.24.3
+# Complete package installation
+pip install streamlit==1.28.0 gradio==4.0.0 pandas==2.0.3 scikit-learn==1.3.0 joblib==1.3.2 numpy==1.24.3
 ```
 
 ## Usage
 
-### Web Application
+### Web Application (Recommended)
 
-1. **Launch the app**: Run `streamlit run fullapp.py`
-2. **Input your details**: Fill in the health and lifestyle questionnaire
-3. **Get prediction**: Click "Predict Diabetes Risk" for instant results
-4. **Interpret results**: Review risk category and confidence score
+**🌐 Live Gradio Interface**:
+1. **Visit**: [https://vivekr21-ml-diabetes-risk-prediction.hf.space/](https://vivekr21-ml-diabetes-risk-prediction.hf.space/)
+2. **Input your details**: Use dropdowns and sliders to fill in health information
+3. **Get prediction**: Click "Submit" for instant results
+4. **View results**: See risk assessment, feature importance, and input summary
+
+### Local Development
+
+**Streamlit Interface** (Local deployment):
+```bash
+streamlit run fullapp.py
+# Navigate to http://localhost:8501
+```
+
+**Gradio Interface** (Local testing):
+```bash
+python app.py
+# Navigate to http://localhost:7860
+```
 
 ### Input Parameters
 
@@ -182,10 +222,10 @@ The application requires the following inputs:
 ## Project Structure
 
 ```
-Diabetes-Risk-Prediction/
+ml_diabetes_risk_prediction/
 │
 ├── fullapp.py                           # Main Streamlit application
-├── app.py                              # Alternative simplified app
+├── app.py                              # Gradio interface application
 ├── ML_diabetes.ipynb                   # Jupyter notebook with EDA and modeling
 ├── diabetes_binary_health_indicators_BRFSS2015.csv  # Dataset
 │
@@ -196,7 +236,9 @@ Diabetes-Risk-Prediction/
 │   └── scaler_top.joblib                    # Feature scaler
 │
 ├── README.md                           # Project documentation
-└── requirements.txt                    # Python dependencies
+├── requirements.txt                    # Python dependencies
+├── runtime.txt                         # Python version for Heroku
+└── DEPLOYMENT.md                       # Deployment instructions
 ```
 
 ## Model Details
@@ -223,23 +265,41 @@ Diabetes-Risk-Prediction/
 
 ## Deployment
 
-### Streamlit Cloud
+### Hugging Face Spaces (Gradio)
+
+The Gradio interface is deployed on Hugging Face Spaces:
+- **Live URL**: [https://vivekr21-ml-diabetes-risk-prediction.hf.space/](https://vivekr21-ml-diabetes-risk-prediction.hf.space/)
+- **Framework**: Gradio
+- **Deployment**: Automatic deployment from GitHub repository
+
+**To deploy on Hugging Face Spaces:**
+
+1. **Create a Space**: Visit [huggingface.co/spaces](https://huggingface.co/spaces)
+2. **Select Gradio**: Choose Gradio as your SDK
+3. **Upload Files**: Add `app.py`, model files, and requirements.txt
+4. **Configure**: The space will automatically build and deploy
+
+### Streamlit (Local Development)
+
+For local development and testing:
 
 1. **Push to GitHub**: Ensure your code is in a GitHub repository
-2. **Connect to Streamlit**: Visit [share.streamlit.io](https://share.streamlit.io)
+2. **Connect to Streamlit**: Visit [share.streamlit.io](https://share.streamlit.io) 
 3. **Deploy**: Select your repository and main file (`fullapp.py`)
 4. **Configure**: Add any necessary secrets or environment variables
 
 ### Local Deployment
 
 ```bash
-# Install Streamlit
+# Streamlit interface
 pip install streamlit
-
-# Run the application
 streamlit run fullapp.py
-
 # Access at http://localhost:8501
+
+# Gradio interface  
+pip install gradio
+python app.py
+# Access at http://localhost:7860
 ```
 
 ### Requirements File
@@ -247,6 +307,7 @@ streamlit run fullapp.py
 Create a `requirements.txt` file:
 ```txt
 streamlit>=1.28.0
+gradio>=4.0.0
 pandas>=2.0.0
 scikit-learn>=1.3.0
 joblib>=1.3.0
