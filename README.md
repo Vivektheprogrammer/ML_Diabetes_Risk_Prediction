@@ -168,28 +168,6 @@ pip install streamlit==1.28.0 gradio==4.0.0 pandas==2.0.3 scikit-learn==1.3.0 jo
 
 ## Usage
 
-### Web Application (Recommended)
-
-**🌐 Live Gradio Interface**:
-1. **Visit**: [https://vivekr21-ml-diabetes-risk-prediction.hf.space/](https://vivekr21-ml-diabetes-risk-prediction.hf.space/)
-2. **Input your details**: Use dropdowns and sliders to fill in health information
-3. **Get prediction**: Click "Submit" for instant results
-4. **View results**: See risk assessment, feature importance, and input summary
-
-### Local Development
-
-**Streamlit Interface** (Local deployment):
-```bash
-streamlit run fullapp.py
-# Navigate to http://localhost:8501
-```
-
-**Gradio Interface** (Local testing):
-```bash
-python app.py
-# Navigate to http://localhost:7860
-```
-
 ### Input Parameters
 
 The application requires the following inputs:
@@ -229,7 +207,7 @@ ml_diabetes_risk_prediction/
 ├── ML_diabetes.ipynb                   # Jupyter notebook with EDA and modeling
 ├── diabetes_binary_health_indicators_BRFSS2015.csv  # Dataset
 │
-├── Models/                             # Trained model files
+├    # Trained model files
 │   ├── revised_diabetes_rf_model.joblib      # Final Random Forest model
 │   ├── revised_model_features.joblib         # Feature names
 │   ├── diabetes_rf_model_top.joblib         # Top features model
